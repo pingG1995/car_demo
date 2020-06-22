@@ -1,0 +1,31 @@
+{
+  "name": "system",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint"
+  },
+  "dependencies": {
+    "@sy/cnet-ui": "^1.0.17",
+    "axios": "^0.19.2",
+    "core-js": "^3.6.4",
+    "crypto": "^1.0.1",
+    "crypto-js": "^4.0.0",
+    "js-md5": "^0.7.3",
+    "moment": "^2.25.3",
+    "vue": "^2.6.11",
+    "vue-router": "^3.1.5",
+    "vuex": "^3.1.2"
+  },
+  "devDependencies": {
+    "@sy/eslint-config-base": "^1.0.10",
+    "@vue/cli-plugin-babel": "^4.2.0",
+    "@vue/cli-plugin-eslint": "^4.2.0",
+    "@vue/cli-service": "^4.2.0",
+    "less": "^3.0.4",
+    "less-loader": "^5.0.0",
+    "vue-template-compiler": "^2.6.11"
+  }
+}
