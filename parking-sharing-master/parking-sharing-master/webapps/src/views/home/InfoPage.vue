@@ -1,15 +1,23 @@
 <template>
   <div class="InfoPage">
     <div class="header">车辆需求信息</div>
-    <cnet-tabs v-model="activeName">
-      <cnet-tab-pane label="供车人信息" name="offer">
-        <carOffer v-bind:Data='offerData'></carOffer>
-      </cnet-tab-pane>
-        
-      <cnet-tab-pane label="需求人信息" name="demand">
-        <carOffer v-bind:Data='demandData'></carOffer>
-      </cnet-tab-pane>
-    </cnet-tabs>
+    <div class="content">
+      <cnet-tabs v-model="activeName">
+        <cnet-tab-pane label="供车人信息" name="offer">
+          <carOffer v-bind:initial_Data="offerData"></carOffer>
+        </cnet-tab-pane>
+
+        <cnet-tab-pane label="需求人信息" name="demand">
+          <carOffer v-bind:initial_Data="demandData"></carOffer>
+        </cnet-tab-pane>
+      </cnet-tabs>
+    </div>
+    <!-- 页面跳转 -->
+    <div class="btnContainer">
+      <router-link :to="{path:'/Result',query:{id:1,name:'vue'}}">
+        <cnet-button type="primary" round size="medium">开始摇号</cnet-button>
+      </router-link>
+    </div>
   </div>
 </template>
 
@@ -74,9 +82,8 @@ export default {
           name: "b4",
           date: "2020-02-02"
         }
-      ],
-      
-    }
+      ]
+    };
   }
 };
 </script> 
@@ -85,6 +92,17 @@ export default {
   .header {
     font-size: 30px;
     text-align: center;
+  }
+  .content {
+    margin: 20px;
+  }
+  .btnContainer {
+    width: 100%;
+    height: 300px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 40px;
   }
 }
 </style>

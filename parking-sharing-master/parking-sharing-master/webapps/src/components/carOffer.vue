@@ -34,11 +34,11 @@
         v-model="searchInput.carNum"
       ></cnet-input>
 
-      <cnet-button class="serach-btn" size="mini" @click="find()">查找</cnet-button>
-      <cnet-button type="primary" size="mini" @click="add()">添加</cnet-button>
-      <cnet-button type="success" size="mini" @click="save_back()">保存并返回</cnet-button>
+      <cnet-button class="serach-btn" size="mini" @click="find">查找</cnet-button>
+      <cnet-button type="primary" size="mini" @click="add">添加</cnet-button>
+      <cnet-button type="success" size="mini" @click="save_back">保存并返回</cnet-button>
     </div>
-    <cnet-table :data="Data" ref="OfferTable" :model="Data" highlight-current-row>
+    <cnet-table :data="Data" ref="OfferTable"  highlight-current-row class="infoTable">
       <cnet-table-column prop="id" label="序号" width="180"></cnet-table-column>
       <cnet-table-column prop="name" label="姓名" width="180"></cnet-table-column>
       <cnet-table-column prop="date" label="日期" width="250">
@@ -48,7 +48,6 @@
             type="date"
             v-model="scope.row.date"
             placeholder="选择日期"
-            disabled
           ></cnet-date-picker>
         </template>
       </cnet-table-column>
@@ -79,13 +78,13 @@
                   placeholder="选择日期"
                 ></cnet-date-picker>
               </cnet-form-item>
-              <cnet-form-item label="车位号：">
-                <cnet-input v-model="formData.carNum" autocomplete="off"></cnet-input>
+              <cnet-form-item label="车位号：" >
+                <cnet-input disabled v-model="formData.carNum" autocomplete="off" ></cnet-input>
               </cnet-form-item>
             </cnet-form>
             <div slot="footer" class="dialog-footer">
-              <cnet-button @click="form_cancle()">取 消</cnet-button>
-              <cnet-button type="primary" @click="form_confirm()">确 定</cnet-button>
+              <cnet-button @click="form_cancle">取 消</cnet-button>
+              <cnet-button type="primary" @click="form_confirm">确 定</cnet-button>
             </div>
           </cnet-dialog>
           <cnet-button class="edit_btn" size="mini" type="danger" @click="remove(scope.$index)">删除</cnet-button>
@@ -99,19 +98,11 @@
 module.exports = {
   name: "Info",
   props:{
-    //   Data: [
-    //     {
-    //       id: String,
-    //       name: String,
-    //       date: String,
-    //       carNum: String,
-    //     },
-       
-    //   ],
-    Data:Array,
+    initial_Data:Array,
   },
   data() {
     return {
+      Data:this.initial_Data,
       //供车人信息
       //提车人信息搜索
       searchInput: {
@@ -145,7 +136,7 @@ module.exports = {
   mounted() {
     this.Data_copy= JSON.parse(JSON.stringify(this.Data));
     //this.offerData_copy=this.offerData;
-    console.log(1);
+    console.log('mounted');
     
   },
   methods: {
@@ -301,6 +292,7 @@ module.exports = {
 * {
   font-size: 14px;
   .carOffer {
+    width: 1200px;
     .search {
       text-align: left;
       width: 100%;
@@ -318,6 +310,9 @@ module.exports = {
         margin-right: 10px;
         width: 150px;
       }
+    }
+    .infoTable{
+      margin: 15px 5px;
     }
     .edit_btn {
       margin-left: 10px;
