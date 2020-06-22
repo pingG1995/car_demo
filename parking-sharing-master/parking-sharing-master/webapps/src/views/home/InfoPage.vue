@@ -16,7 +16,9 @@
     <div class="btnContainer">
       <router-link :to="{path:'/Result',query:{id:1,name:'vue'}}">
         <cnet-button type="primary" round size="medium">开始摇号</cnet-button>
+        
       </router-link>
+      
     </div>
   </div>
 </template>
@@ -24,6 +26,8 @@
 <script>
 // @ is an alias to /src
 import carOffer from "@/components/carOffer.vue";
+import axios from 'axios';
+import { request } from "@/api/local.js";
 //import carDemand from "@/components/carDemand.vue";
 export default {
   name: "InfoPage",
@@ -58,6 +62,102 @@ export default {
           name: "a4",
           date: "2020-02-02",
           carNum: "苏E33333"
+        },
+        {
+          id: "4",
+          name: "a4",
+          date: "2020-02-02",
+          carNum: "苏E33333"
+        },
+        {
+          id: "5",
+          name: "a4",
+          date: "2020-02-02",
+          carNum: "苏E33333"
+        },
+        {
+          id: "6",
+          name: "a4",
+          date: "2020-02-02",
+          carNum: "苏E33333"
+        },
+        {
+          id: "7",
+          name: "a4",
+          date: "2020-02-02",
+          carNum: "苏E33333"
+        },
+         {
+          id: "0",
+          name: "a1",
+          date: "2020-02-02",
+          carNum: "苏E88888"
+        },
+        {
+          id: "1",
+          name: "a2",
+          date: "2020-02-02",
+          carNum: "苏E22222"
+        },
+        {
+          id: "2",
+          name: "a3",
+          date: "2020-02-02",
+          carNum: "苏E66666"
+        },
+        {
+          id: "3",
+          name: "a4",
+          date: "2020-02-02",
+          carNum: "苏E33333"
+        },
+        {
+          id: "4",
+          name: "a4",
+          date: "2020-02-02",
+          carNum: "苏E33333"
+        },
+        {
+          id: "5",
+          name: "a4",
+          date: "2020-02-02",
+          carNum: "苏E33333"
+        },
+         {
+          id: "0",
+          name: "a1",
+          date: "2020-02-02",
+          carNum: "苏E88888"
+        },
+        {
+          id: "1",
+          name: "a2",
+          date: "2020-02-02",
+          carNum: "苏E22222"
+        },
+        {
+          id: "2",
+          name: "a3",
+          date: "2020-02-02",
+          carNum: "苏E66666"
+        },
+        {
+          id: "3",
+          name: "a4",
+          date: "2020-02-02",
+          carNum: "苏E33333"
+        },
+        {
+          id: "4",
+          name: "a4",
+          date: "2020-02-02",
+          carNum: "苏E33333"
+        },
+        {
+          id: "5",
+          name: "a4",
+          date: "2020-02-02",
+          carNum: "苏E33333"
         }
       ],
       //提车人信息
@@ -83,14 +183,25 @@ export default {
           date: "2020-02-02"
         }
       ]
-    };
-  }
+    }
+  },
+  mounted(){
+        //ajax数据请求 获取 offerData和 demandData:
+
+    },
+    methods:{
+      ajax_test:function(){
+        ///暂定
+       request('http://jsonplaceholder.typicode.com/users');
+      }
+    }
 };
 </script> 
 <style lang="less">
 .InfoPage {
   .header {
     font-size: 30px;
+    margin-top:20px;
     text-align: center;
   }
   .content {

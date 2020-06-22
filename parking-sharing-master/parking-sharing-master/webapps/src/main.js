@@ -6,10 +6,12 @@ import store from './store';
 import router from './router'
 import './public-path';
 import './assets/global.less';
+import Axios from 'axios'
+import VueAxios from 'vue-axios'
 
-Vue.config.productionTip = false;
+Vue.use(VueAxios, Axios)
 Vue.use(CnetUI);
-
+Vue.config.productionTip = false;
 let instance = null;
 
 function render () {

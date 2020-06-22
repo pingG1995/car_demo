@@ -57,6 +57,7 @@ export default {
     .header {
     font-size: 30px;
     text-align: center;
+    margin-top:20px;
   }
 }
     
