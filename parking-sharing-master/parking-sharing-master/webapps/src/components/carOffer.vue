@@ -31,6 +31,7 @@
         size="mini"
         placeholder="请输入内容"
         prefix-icon="el-icon-search"
+        :disabled="typeof(Data[0].carNum)=='undefined'"
         v-model="searchInput.carNum"
       ></cnet-input>
 
@@ -44,7 +45,7 @@
         <cnet-table-column prop="name" label="姓名" show-overflow-tooltip  width="200px"></cnet-table-column>
         <cnet-table-column prop="date" label="日期" show-overflow-tooltip width='250px'>
           <template slot-scope="scope"  show-overflow-tooltip>
-            <cnet-date-picker size="mini" type="date" v-model="scope.row.date" placeholder="选择日期"></cnet-date-picker>
+            <cnet-date-picker disabled size="mini" type="date" v-model="scope.row.date" placeholder="选择日期"></cnet-date-picker>
           </template>
         </cnet-table-column>
         <cnet-table-column prop="carNum" label="车位" width="200px"></cnet-table-column>
@@ -255,7 +256,10 @@ module.exports = {
       var name = this.searchInput.name;
       var date = this.searchInput.date;
       var carNum = this.searchInput.carNum;
-      this.Data = this.Data.filter(function(item) {
+      var flag=this.Data[0].carNum;
+      console.log(typeof(flag));
+      if(typeof(flag)!=="undefined"){
+        this.Data = this.Data.filter(function(item) {
         return (
           item.id.indexOf(id) > -1 &&
           item.name.indexOf(name) > -1 &&
@@ -263,6 +267,16 @@ module.exports = {
           item.carNum.indexOf(carNum) > -1
         );
       });
+      }
+      else{
+        this.Data = this.Data.filter(function(item) {
+        return (
+          item.id.indexOf(id) > -1 &&
+          item.name.indexOf(name) > -1 &&
+          item.date.indexOf(date) > -1
+        );
+      });
+      }
       this.findIndex = false;
       this.searchInput = {
         id: "",
@@ -338,12 +352,16 @@ module.exports = {
         margin-left: 10px;
       }
     }
+  /*hello
+    heell
+    hello */
+
     .pagination{
-      width: 200px;
+      width: 400px;
       height: 30px;
-      margin: 0px 850px;
+      margin: 0px 750px;
       text-align: center;
-      background-color: aquamarine;
+      // background-color: aquamarine;
       .el-pagination{
         text-align: center;
       }
