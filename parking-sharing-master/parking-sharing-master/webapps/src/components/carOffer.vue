@@ -343,7 +343,7 @@ module.exports = {
       height: 30px;
       margin: 0px 850px;
       text-align: center;
-      // background-color: aquamarine;
+      background-color: aquamarine;
       .el-pagination{
         text-align: center;
       }
