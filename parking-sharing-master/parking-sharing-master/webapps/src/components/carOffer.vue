@@ -330,7 +330,7 @@ module.exports = {
       }
     }
     .container {
-      width: 1200px;
+       width: 100%;
       .infoTable {
         margin: 15px 5px;
       }

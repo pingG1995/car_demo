@@ -15,7 +15,7 @@
     <!-- 页面跳转 -->
     <div class="btnContainer">
       <router-link :to="{path:'/Result',query:{id:1,name:'vue'}}">
-        <cnet-button type="primary" round size="medium">开始摇号</cnet-button>
+        <cnet-button type="primary" plain size="medium">开始摇号</cnet-button>
         
       </router-link>
       
